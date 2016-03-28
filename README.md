@@ -1,0 +1,2 @@
+# FileStore.js
+File writer.
