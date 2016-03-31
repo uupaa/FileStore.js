@@ -1,0 +1,77 @@
+{
+  "name": "uupaa.filestore.js",
+  "version": "0.0.1",
+  "description": "File Store / Writer.",
+  "url": "https://github.com/uupaa/FileStore.js",
+  "keywords": ["FileSystem", "SandBox", "FileWriter", "uupaa", "WebModule", "Unstable"],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/uupaa/FileStore.js.git"
+  },
+  "scripts": {
+    "sync": "node ../WebModule/run/sync.js; npm update; node ../WebModule/run/page.js",
+    "wiki": "node ../WebModule/run/wiki.js",
+    "min": "node ../WebModule/run/minify.js --verbose --strict --keep --pretty",
+    "build": "node ../WebModule/run/minify.js --verbose --strict --keep --release",
+    "watch": "node ../WebModule/run/watch.js --verbose --run lint",
+    "page": "node ../WebModule/run/page.js --verbose",
+    "test": "npm run min; npm run node; npm run browser",
+    "node": "NODE_ENV=production NODE_PATH=lib node test/node/index.js",
+    "noded": "NODE_ENV=production NODE_PATH=lib node --debug-brk test/node/index.js",
+    "browser": "open http://localhost:8000/FileStore.js/test/browser/index.html",
+    "el": "electron test/el",
+    "nw": "nw test/nw",
+    "add-src": "node ../WebModule/run/add-src.js",
+    "add-subclass": "node ../WebModule/run/add-subclass.js",
+    "sim": "node ../WebModule/run/sim.js http://localhost:8000/FileStore.js/test/browser/index.html",
+    "simx": "node ../WebModule/run/sim.js stop",
+    "lint": "eslint lib/*.js",
+    "score": "node ../WebModule/run/score.js; open lint/plato/index.html",
+    "patch": "node ../WebModule/run/patch.js",
+    "setup": "node ../WebModule/run/setup.js",
+    "start": "cd ../; Python -m SimpleHTTPServer 8000 &",
+    "stop": "killall -- Python -m SimpleHTTPServer 8000; exit 0"
+  },
+  "webmodule": {
+    "develop": false,
+    "label": ["@dev"],
+    "browser": {
+      "output": "release/FileStore.b.min.js",
+      "source": [
+        "lib/FileStoreSandBox.js",
+        "lib/FileStore.js"
+      ]
+    },
+    "node": {
+      "output": "release/FileStore.n.min.js",
+      "source": [
+        "lib/FileStoreSandBox.js",
+        "lib/FileStore.js"
+      ]
+    },
+    "nw": {
+      "output": "release/FileStore.nw.min.js",
+      "source": [
+        "lib/FileStoreSandBox.js",
+        "lib/FileStore.js"
+      ]
+    },
+    "el": {
+      "output": "release/FileStore.el.min.js",
+      "source": [
+        "lib/FileStoreSandBox.js",
+        "lib/FileStore.js"
+      ]
+    }
+  },
+  "dependencies": {
+    "uupaa.uri.js": "",
+    "uupaa.mimetype.js": ""
+  },
+  "devDependencies": {},
+  "lib": "./lib/",
+  "main": "./index.js",
+  "author": "uupaa",
+  "license": "MIT",
+  "contributors": []
+}
